@@ -1,0 +1,69 @@
+﻿@using Entity;
+@model List<Musteri>
+
+    <div class="container mt-3">
+    <h2>Hoş Geldin</h2>
+        <h1>Müsteri Listesi</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Telefon</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Adi</td>
+                        <td>@item.Soyadi</td>
+                        <td>@item.Telefon</td>
+                        <td>@item.E_mail</td>
+                        <td>
+                            <a href="#" class="btn btn-danger sil" data-MusteriId="@item.Id">Sil</a>
+                        </td>
+                        <td>
+                            <a href="/Musteri/Details/@item.Id" class="btn btn-primary ">Detaylar</a>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+
+    <a asp-controller="Musteri" asp-action="Add" class="btn btn-primary">Müşteri Ekle</a>
+    </div>
+
+@section scripts{
+
+    
+    <script>
+        $(".sil").click(
+            function () {
+                var sonuc = confirm("Müşteri kaydı silinsin mi?");
+                if (sonuc) {
+                    var id = $(this).attr("data-MusteriId");
+                    $.ajax(
+                        {
+                            type: "POST",
+                            url: "/Musteri/Delete/" + id,
+                            success: function () {
+                               
+                                window.location.replace("List");
+                            },
+                            error: function () {
+                                alert("Silme işlemi sırasında hata oluştu.");
+                            }
+                        }
+                    )
+
+                }
+              
+            }
+        )
+    </script>
+
+    }

@@ -1,0 +1,32 @@
+﻿@model Entity.Musteri;
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<h1>Müşteri Güncelle</h1>
+<form method="post" action="/Musteri/Add">
+    <div class="mb-3">
+        <label for="" class="form-label"><b>Ad</b></label>
+        <input type="hidden" asp-for="Id" />
+        <input type="text" placeholder="Adınız" class="form-control" asp-for="Adi">
+        <span asp-validation-for="Adi" style="color:mediumvioletred"></span><br />
+        <label for="" class="form-label"><b>Soyad</b></label>
+        <input type="text" placeholder="Soyadınız" class="form-control" asp-for="Soyadi">
+        <span asp-validation-for="Soyadi" style="color:mediumvioletred"></span><br />
+        <label for="" class="form-label"><b>Telefon</b></label>
+        <input type="number" placeholder="Telefon Numaranız" class="form-control" asp-for="Telefon">
+        <span asp-validation-for="Telefon" style="color:mediumvioletred"></span><br />
+        <label for="" class="form-label"><b>E-mail</b></label>
+        <input type="text" placeholder="E-mail Adresiniz" class="form-control" asp-for="E_mail">
+        <span asp-validation-for="E_mail" style="color:mediumvioletred"></span><br />
+        <label for="" class="form-label"><b>Doğum Tarihi</b></label>
+        <input type="date" class="form-control" asp-for="Dogum_Tarihi">
+        <span asp-validation-for="Dogum_Tarihi" style="color:mediumvioletred"></span><br />
+        <label for="" class="form-label"><b>Meslek</b></label>
+        <input type="text" placeholder="Mesleğiniz" class="form-control" asp-for="Meslegi">
+   
+    </div>
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+    <a asp-controller="Musteri" asp-action="List" class="btn btn-danger">İptal</a>
+</form>

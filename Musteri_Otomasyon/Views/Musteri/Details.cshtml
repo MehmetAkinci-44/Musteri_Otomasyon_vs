@@ -1,0 +1,23 @@
+﻿@using Entity;
+@model Musteri
+<h1>Müsteri Detayları</h1>
+
+    <div class="mb-3">
+        
+        <label for="" class="form-label"> <b>Ad</b> : @Model.Adi</label>
+        <br />
+        <label for="" class="form-label"><b>Soyad</b> : @Model.Soyadi</label>
+        <br />
+        <label for="" class="form-label"><b>Telefon</b> : @Model.Telefon</label>
+        <br />
+        <label for="" class="form-label"><b>E-mail</b> : @Model.E_mail</label>
+        <br />
+        <label for="" class="form-label"><b>Doğum Tarihi</b> : @Model.Dogum_Tarihi.ToString("dd,MMM,yyyy")</label>
+        <br />
+        <label for="" class="form-label"><b>Mesleği</b> : @Model.Meslegi</label>
+      
+       
+    </div>
+
+   <a asp-controller="Musteri" asp-action="List" class="btn btn-primary">Geri Dön</a>
+   <a asp-controller="Musteri" asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary" style="background-color:mediumaquamarine">Güncelle</a>

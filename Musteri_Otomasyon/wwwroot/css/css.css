@@ -1,0 +1,480 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+@import url("Helperclasses.css");
+@import url("Bsse.css");
+
+html {
+    scroll-behavior: smooth;
+}
+
+.body_header {
+    background-color: rgb(120, 85, 25);
+    padding-left: 20px;
+}
+
+    .body_header::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+.body_header_list {
+    display: block;
+    text-align: right;
+    float: right;
+    padding: 0px;
+    margin: auto;
+}
+
+#Baþlýk {
+    display: block;
+    color: #fff;
+    font-size: 2.5em;
+    margin: auto;
+    float: left;
+}
+
+.sec1 {
+    background-image: url('../image/kahve.jpg');
+    background-position: center;
+    position: relative;
+    margin-top: 55px;
+    background-size: cover;
+}
+
+.div10 {
+    margin-top: 0px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background-color: rgba(58, 67, 196, 0.4);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 2px;
+}
+
+
+.sec2 {
+    text-align: center
+}
+
+@media(max-width:710px) {
+    .Plan {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 1rem 0px;
+    }
+
+    [class*="bölme2__sec"] {
+        width: 100%;
+    }
+
+    [class*="bölme2__sec1"] {
+        height: 35vh;
+    }
+
+    .sec3 {
+        width: 100%;
+        margin: 1rem 0px;
+    }
+
+    .arkaplan {
+        width: 100%;
+        height: 35vh;
+    }
+}
+
+@media(min-width:710px) {
+    .Plan {
+        margin: 1rem 1rem;
+    }
+
+    [class*="bölme2__sec"] {
+        width: 50%;
+        height: 350px;
+    }
+
+    .sec3 {
+        width: 30%;
+        margin: 1rem 1rem;
+    }
+
+    .arkaplan {
+        width: 50%;
+        height: 350px;
+    }
+}
+
+@media (max-width:410px) {
+    .col-3 {
+        width: 100%;
+        margin: 0.5rem 0px;
+    }
+
+    .body_header_list li {
+        display: none;
+    }
+
+    .body_header [class="icon"] {
+        display: inline-block;
+        margin: 0.6rem 1.2rem;
+    }
+
+    .mobiltas li {
+        display: block;
+    }
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media (min-width:410px) {
+    .col-3 {
+        width: 30%;
+    }
+
+    .bölümler2__div1 {
+        margin-right: 2.5%;
+    }
+
+    .bölümler2__div2 {
+        margin: 0px 2.5%;
+    }
+
+    .bölümler2__div3 {
+        margin-left: 2.5%;
+    }
+
+    .body_header_list [class="icon"] {
+        display: none;
+    }
+}
+
+.sec3 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#bölme1 {
+    text-align: center
+}
+
+.sec2 h1 {
+    color: rgb(50, 45, 45)
+}
+
+.sec3 h2 {
+    color: rgb(50, 45, 45)
+}
+
+.bölme1_icons i {
+    color: rgb(253, 158, 174)
+}
+
+.bölme2 section {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box
+}
+
+.bölme2__sec1 {
+    background-image: url('../image/kahve\ ve\ saðlýk.jpg');
+    background-position: top;
+    background-size: cover
+}
+
+.bölme2__sec2 {
+    background-color: #edf5f7;
+}
+
+.Plan {
+    background-color: #edf5f7;
+    float: left;
+    padding: 0px 30px 15px 30px;
+    box-shadow: -5px 5px 10px 0px rgba(46, 46, 46, 0.6);
+    transition: box-shadow 0.5s;
+}
+
+    .Plan:hover {
+        box-shadow: -15px 15px 15px 0px rgba(46, 46, 46, 0.6);
+    }
+
+.Plans {
+    margin: 2rem;
+    text-align: center;
+    display: block
+}
+
+.Plan ul {
+    padding: 0px;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.Plans_div {
+    margin: 0px
+}
+
+.bölme2 {
+    margin-bottom: 4rem;
+}
+
+.plans_sec2 {
+    background-color: #396eb0;
+    color: #fff;
+    border-radius: 7px
+}
+
+#plans_sec2_rec {
+    background-color: #fff;
+    color: #fc997c;
+    padding: 5px 0px;
+    border-radius: 7px
+}
+
+.choose {
+    padding: 5px 15px !important
+}
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+}
+
+.fa-circle-chevron-up {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    color: rgb(131, 85, 93);
+    transition: color 0.5s
+}
+
+#imleç:hover .fa-circle-chevron-up {
+    color: rgb(68, 25, 32)
+}
+
+.sec8 {
+    background-image: linear-gradient(to bottom right, rgba(0, 128, 0, 0.1), rgba(255, 255, 0, 0.1));
+    position: absolute;
+    top: 55px;
+    left: 0px;
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    margin-left: 8px;
+}
+
+#Ýçerik {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.div10 .paragraf {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.bölüm {
+    display: inline-block;
+    width: 33.33%;
+    padding: 2rem 0px;
+    text-align: center;
+}
+
+.rakam {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.bölüm .içerik {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.bölümler {
+    margin-top: 5rem;
+    background-color: #fc997c;
+}
+
+.bölme2 {
+    position: relative;
+}
+
+.arkaplan {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: linear-gradient(to bottom right, rgba(0, 128, 0, 0.1), rgba(255, 255, 0, 0.1));
+}
+
+.bölümler2 {
+    margin: 4rem 2rem;
+}
+
+    .bölümler2::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+.col-3 {
+    padding-bottom: 20px;
+    float: left;
+    box-shadow: -5px 5px 5px 0px rgba(46, 46, 46, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s
+}
+
+    .col-3:hover {
+        transform: translateY(-10px);
+    }
+
+.col-3__içerik {
+    margin: 0px 15px;
+}
+
+
+    .col-3__içerik span {
+        background-color: #fc997c;
+        color: #fff;
+        padding: 5px 20px;
+        margin-top: 60px;
+    }
+
+.footer_body {
+    background-color: #22436b;
+    padding: 4rem 10%;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    vertical-align: middle;
+}
+
+.fa-twitter-square {
+    background: #55ACEE;
+    color: white;
+    margin: 0px 10px;
+    vertical-align: middle;
+}
+
+.fa-instagram-square {
+    background: #125688;
+    color: white;
+    vertical-align: middle;
+}
+
+.footer_links {
+    text-align: left;
+    font-size: larger;
+    vertical-align: middle;
+    float: left;
+}
+
+.footer_logolar {
+    float: right;
+    text-align: right;
+}
+
+.footer_body::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.fa-brands {
+    border-radius: 50%;
+}
+
+.form h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #22436b;
+}
+
+[action] label:not([for="Gender"],[for="agree"]) {
+    display: block;
+    margin: 15px;
+}
+
+[type="password"] {
+    display: block;
+    margin: 15px auto;
+}
+
+[type="submit"] {
+    display: block;
+    margin: 15px auto;
+}
+
+[action] {
+    display: inline-block;
+    margin: 0px calc((100% - 308px) / 2);
+}
+
+    [action] input:not([type="checkbox"]) {
+        width: 300px;
+    }
+
+h1 {
+    text-align: center;
+}
+
+[action] input:not([type="checkbox"]) {
+    padding: 8px;
+    border: 1px solid rgb(255, 2, 162);
+}
+
+.signup select {
+    padding: 3px 5px;
+    border: 1px solid grey;
+}
+
+.signup input:not([type="checkbox"]):focus, select:focus {
+    outline: none;
+    background-color: rgb(255, 242, 223);
+    color: #0051ff;
+    border: 1px solid greenyellow;
+}
+
+.signup [type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(254, 228, 183);
+    vertical-align: middle;
+    border: 1px solid red;
+    border-radius: 50%;
+}
+
+    .signup [type="checkbox"]:checked {
+        background-color: greenyellow;
+        border: none;
+    }
+
+.bölümler2_baslýk {
+    margin-bottom: 2rem;
+}
+
+.plans__div2 {
+    display: inline-block;
+}
+/* .signup select:focus{
+    background-color:rgb(255, 242, 223);
+    color:#0051ff;
+} */

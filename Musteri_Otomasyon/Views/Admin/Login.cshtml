@@ -1,0 +1,41 @@
+﻿@using Entity;
+@{
+    Layout = null;
+}
+@model Admin
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" />
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Login</title>
+    <link href="~/css/css.css" rel="stylesheet" />
+    
+    <style>
+    </style>
+</head>
+<body id="body">
+    <main style="padding: 10svh ;">
+
+        <h1> Yönetici Girişi</h1>
+        <div class="form">
+            <form action="/Admin/Login" class="signup" method="post">
+
+                <label for="FirstName" style="font-size:1.5rem">Kullanıcı Adı</label>
+                <input type="text" id="UserName" asp-for = "Kullanici_Adi" placeholder="Kullanıcı Adı giriniz">
+                <label for="Password" style="font-size:1.5rem">Şifre</label>
+                <input type="password" id="Password" asp-for = "Sifre" placeholder="Şifre giriniz">
+
+                <br>
+
+                <button type="submit" class="btns btn_primary">Giriş Yap</button>
+
+            </form>
+        </div>
+    </main>
+</body>
+</html>
