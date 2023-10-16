@@ -1,5 +1,8 @@
 ﻿@using Entity;
-@model List<Musteri>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common;
+@model IPagedList<Musteri>
 
     <div class="container mt-3">
     <h2>Hoş Geldin</h2>
@@ -31,8 +34,14 @@
                     </tr>
                 }
             }
-            </tbody>
+        </tbody>
         </table>
+
+        @Html.PagedListPager((IPagedList)Model,page => Url.Action("List",new {page}),
+        new PagedListRenderOptions {
+    LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }
+    })
 
     <a asp-controller="Musteri" asp-action="Add" class="btn btn-primary">Müşteri Ekle</a>
     </div>

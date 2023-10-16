@@ -5,6 +5,7 @@ using Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using X.PagedList;
 
 namespace Musteri_Otomasyon.Controllers
 {
@@ -12,9 +13,9 @@ namespace Musteri_Otomasyon.Controllers
     public class MusteriController : Controller
     {
         MusteriManager musterimanager = new MusteriManager(new MusteriRepositories());
-        public IActionResult List()
+        public IActionResult List(int page = 1)
         {
-            List<Musteri> list = musterimanager.GetAll();
+            IPagedList<Musteri> list = musterimanager.GetAll().ToPagedList(page,5);
             return View(list);
         }
 
