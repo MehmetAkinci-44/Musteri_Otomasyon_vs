@@ -4,74 +4,99 @@
 @using X.PagedList.Web.Common;
 @model IPagedList<Musteri>
 
-    <div class="container mt-3">
+<div class="container mt-3">
     <h2>Hoş Geldin</h2>
-        <h1>Müsteri Listesi</h1>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Ad</th>
-                    <th>Soyad</th>
-                    <th>Telefon</th>
-                    <th>E-mail</th>
-                </tr>
-            </thead>
-            <tbody>
+    <h1>Müsteri Listesi</h1>
+    <div style="min-height:330px;">
+
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Telefon</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
             @{
-                foreach(var item in Model)
+                foreach (var item in Model)
                 {
-                    <tr>
-                        <td>@item.Adi</td>
-                        <td>@item.Soyadi</td>
-                        <td>@item.Telefon</td>
-                        <td>@item.E_mail</td>
-                        <td>
-                            <a href="#" class="btn btn-danger sil" data-MusteriId="@item.Id">Sil</a>
-                        </td>
-                        <td>
-                            <a href="/Musteri/Details/@item.Id" class="btn btn-primary ">Detaylar</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@item.Adi</td>
+                            <td>@item.Soyadi</td>
+                            <td>@item.Telefon</td>
+                            <td>@item.E_mail</td>
+                            <td>
+                                <a href="#" class="btn btn-danger sil" data-MusteriId="@item.Id">Sil</a>
+                            </td>
+                            <td>
+                                <a href="/Musteri/Details/@item.Id" class="btn btn-primary ">Detaylar</a>
+                            </td>
+                        </tr>
                 }
             }
         </tbody>
-        </table>
-
-        @Html.PagedListPager((IPagedList)Model,page => Url.Action("List",new {page}),
-        new PagedListRenderOptions {
+    </table>
+    </div>
+    @Html.PagedListPager((IPagedList)Model,page => Url.Action("List",new {page}),
+    new PagedListRenderOptions {
     LiElementClasses = new string[] { "page-item" },
     PageClasses = new string[] { "page-link" }
     })
 
     <a asp-controller="Musteri" asp-action="Add" class="btn btn-primary">Müşteri Ekle</a>
-    </div>
+</div>
 
 @section scripts{
 
-    
+
     <script>
+
+
         $(".sil").click(
             function () {
-                var sonuc = confirm("Müşteri kaydı silinsin mi?");
-                if (sonuc) {
-                    var id = $(this).attr("data-MusteriId");
-                    $.ajax(
-                        {
-                            type: "POST",
-                            url: "/Musteri/Delete/" + id,
-                            success: function () {
-                               
-                                window.location.replace("List");
-                            },
-                            error: function () {
-                                alert("Silme işlemi sırasında hata oluştu.");
-                            }
+
+                swal({
+                    
+                    title: "Uyarı",
+                    text: "Müşteri kaydını silmek istediğinizden emim misiniz?",
+                    icon:"warning",
+                    buttons: true,
+                    dangerMode:true,
+                    buttons: ['İptal', 'Evet'],
+                  
+                })
+
+                    .then((sil) => {
+
+                        if (sil) {
+                            var id = $(this).attr("data-MusteriId");
+                            $.ajax(
+                                {
+                                    type: "POST",
+                                    url: "/Musteri/Delete/" + id,
+                                    success: function () {
+
+                                        window.location.replace("List");
+                                    },
+                                    error: function () {
+                                        swal({
+                                            title:"Uyarı",
+                                            text:"Silme işlemi esnasında hata oluştu",
+                                            icon:"error",
+                                        })
+                                    }
+                                }
+                            )
                         }
+                      
+                    }
                     )
 
-                }
-              
             }
+
         )
     </script>
 
