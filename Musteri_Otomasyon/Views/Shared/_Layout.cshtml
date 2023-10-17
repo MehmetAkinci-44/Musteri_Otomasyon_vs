@@ -24,7 +24,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Musteri" asp-action="List">Müşteri Listesi</a>
                         </li>
                         <li class="nav-item" style="margin-left:auto; margin-right:5%">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="LogOut">Logout</a>
+                            <a href="#" class="nav-link text-dark" id="LogOut" >Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -49,6 +49,18 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    
     @await RenderSectionAsync("Scripts", required: false)
-   
+    <script>
+        $("#LogOut").click(
+            function(){
+                swal({
+                    title:"Uyarı",
+                    text:"Oturumu kapatmak istediğinizden emin misiniz?",
+                    buttons:true,
+                    buttons:['Hayır',"Evet"],
+                    icon:"info",
+                })
+            }
+        )
+    </script>
 </body>
 </html>
