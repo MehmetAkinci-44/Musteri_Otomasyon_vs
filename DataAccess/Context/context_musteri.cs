@@ -14,7 +14,7 @@ namespace DataAccess.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = (localdb)\\MSSQLLocalDB; database = Musteridb; integrated security = true;");
+            optionsBuilder.UseSqlServer("server = (localdb)\v11.0; database = Musteridb; integrated security = true;");
         }
         public DbSet<Musteri> Musteris { get; set; }
         public DbSet<Admin> Admins { get; set; }
