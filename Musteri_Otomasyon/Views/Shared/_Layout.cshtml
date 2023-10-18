@@ -59,6 +59,42 @@
                     buttons:['Hayır',"Evet"],
                     icon:"info",
                 })
+                    .then((Logout) => { 
+                    if(Logout)
+                    {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Admin/LogOut",
+                            success: function () {
+                                swal({
+                                    icon: "success",
+                                    text: "Sistemden güvenli bir şekilde çıkış yaptınız.",
+
+                                }).then((ok) => { 
+                                    
+                                    window.location.replace("/Admin/Login");
+
+                                }
+                                )
+                               
+                            },
+                            error: function()
+                            {
+                                swal({
+                                    text:"Oturumunuz kaptılamadı.",
+                                    icon : "error",
+
+                                })
+                            
+                            }
+
+                            
+                        })
+                    }
+                    
+                    }
+                
+                )
             }
         )
     </script>
