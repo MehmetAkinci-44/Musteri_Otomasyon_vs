@@ -21,7 +21,7 @@ namespace DataAccess.Mapping
             builder.Property(x => x.Adi).IsRequired();
             builder.Property(x => x.Soyadi).IsRequired();
             builder.Property(x => x.Dogum_Tarihi).IsRequired();
-            
+
         }
     }
 }

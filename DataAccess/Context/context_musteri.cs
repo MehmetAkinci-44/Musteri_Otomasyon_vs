@@ -23,6 +23,8 @@ namespace DataAccess.Context
         {
             modelBuilder.ApplyConfiguration(new Musterimapping());
             modelBuilder.ApplyConfiguration(new AdminMapping());
+            modelBuilder.Entity<Musteri>().HasIndex(x=>x.Telefon).IsUnique();
+            modelBuilder.Entity<Admin>().HasIndex(x => x.Kullanici_Adi).IsUnique();
         }
 
     }
