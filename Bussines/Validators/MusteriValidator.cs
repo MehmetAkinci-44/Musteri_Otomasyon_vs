@@ -78,7 +78,7 @@ namespace Bussines.Validators
             {
 
 
-                var item = context.Musteris.FirstOrDefault(x => x.Telefon == musteri.Telefon);
+                var item = context.Musteris.FirstOrDefault(x => x.Telefon == telefon && x.Id != musteri.Id);
                 if (item != null)
                 {
                     return false;
@@ -99,7 +99,7 @@ namespace Bussines.Validators
             {
 
 
-                var item = context.Musteris.FirstOrDefault(x => x.E_mail == email);
+                var item = context.Musteris.FirstOrDefault(x => x.E_mail == email && x.Id != musteri.Id);
                 if (item != null)
                 {
                     return false;

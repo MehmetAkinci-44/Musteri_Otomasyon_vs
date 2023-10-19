@@ -54,8 +54,15 @@ namespace Musteri_Otomasyon.Controllers
             }
            else
             {
-                musterimanager.update(musteri);
-                return RedirectToAction("List");
+                if(ModelState.IsValid)
+                {
+                    musterimanager.update(musteri);
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    return View(musteri);
+                }
             }
             
         }
