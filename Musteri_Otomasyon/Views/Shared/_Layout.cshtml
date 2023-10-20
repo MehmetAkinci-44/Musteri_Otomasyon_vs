@@ -7,7 +7,20 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Musteri_Otomasyon.styles.css" asp-append-version="true" />
-    
+    <style>
+        #Menu_button{
+           
+            padding-left: 10px;
+        }
+        #menu {
+            display: none;
+            position:relative;
+            background-color: white;
+            
+            border: 2px solid;
+            border-color: lightskyblue;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -24,12 +37,29 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Musteri" asp-action="List">Müşteri Listesi</a>
                         </li>
                         <li class="nav-item" style="margin-left:auto; margin-right:5%">
-                            <a href="#" class="nav-link text-dark" id="LogOut" >Logout</a>
+                            <a href="#" class="nav-link text-dark" id="LogOut">Logout</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <ul style="list-style-type:none">
+            <li><span id="Menu_button">Musteri Menu</span></li>
+            <li>
+                <div id="menu">
+                    <div class="nav-column">
+                        <ul style="list-style-type:none">
+                            <li>Musteri Belgeleri</li>
+                            <li>Musteri Hareketleri</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+       
+        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -45,59 +75,74 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   
+
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         $("#LogOut").click(
-            function(){
+            function () {
                 swal({
-                    title:"Uyarı",
-                    text:"Oturumu kapatmak istediğinizden emin misiniz?",
-                    buttons:true,
-                    buttons:['Hayır',"Evet"],
-                    icon:"info",
+                    title: "Uyarı",
+                    text: "Oturumu kapatmak istediğinizden emin misiniz?",
+                    buttons: true,
+                    buttons: ['Hayır', "Evet"],
+                    icon: "info",
                 })
-                    .then((Logout) => { 
-                    if(Logout)
-                    {
-                        $.ajax({
-                            type: "GET",
-                            url: "/Admin/LogOut",
-                            success: function () {
-                                 
-                                swal({
-                                    icon: "success",
-                                    text: "Sistemden güvenli bir şekilde çıkış yaptınız.",
+                    .then((Logout) => {
+                        if (Logout) {
+                            $.ajax({
+                                type: "GET",
+                                url: "/Admin/LogOut",
+                                success: function () {
+                                    swal({
+                                        icon: "success",
+                                        text: "Sistemden güvenli bir şekilde çıkış yaptınız.",
+                                        buttons: false
+                                    });
+                                    function action() {
+                                        swal.close();
+                                        window.location.href = "/Admin/Login";
+                                    };
 
-                                }).then((ok) => { 
-                                    
-                                    window.location.replace("/Admin/Login");
+                                    Timer = setTimeout(action, 3000);
+
+                                    document.addEventListener("click", function () {
+                                        clearTimeout(Timer);
+                                        action();
+                                    });
+                                },
+                                error: function () {
+                                    swal({
+                                        text: "Oturumunuz kaptılamadı.",
+                                        icon: "error",
+
+                                    })
 
                                 }
-                                )
-                                 
-                            },
-                            error: function()
-                            {
-                                swal({
-                                    text:"Oturumunuz kaptılamadı.",
-                                    icon : "error",
+                            })
+                        }
 
-                                })
-                            
-                            }
-
-                            
-                        })
                     }
-                    
-                    }
-                
-                )
+                    )
             }
         )
+    </script>
+    <script>
+        const menu = document.getElementById("menu");
+        const menu_button = document.getElementById("Menu_button");
+
+        menu_button.addEventListener("mouseover",
+            function () {
+                menu.style.display = "block";
+            }
+        );
+
+        menu_button.addEventListener("mouseout",
+            function () {
+                menu.style.display = "none";
+            }
+        );
     </script>
 </body>
 </html>
